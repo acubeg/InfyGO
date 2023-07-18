@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-InfyGoApplication<InfyGO>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.infosys.InfyGO.InfyGoApplication",
+            "projectName": "InfyGO",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

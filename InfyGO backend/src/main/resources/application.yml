@@ -1,0 +1,25 @@
+spring:      
+ #Please modify the username and password as per your database
+  datasource:
+    username: root
+    password: Dsa@78cav
+    #url: jdbc:h2:tcp://localhost/~/test
+    url: jdbc:mysql://localhost:3306/db_irs
+
+server:
+  port: 8080
+  
+  
+logging:
+  file: 
+   name: Errorlog.log
+  level:
+    root: info
+    com.infoys.ars: info
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss,SSS} %5p [%t] %c [%M] - %m%n"
+
+
+
+  
+    
