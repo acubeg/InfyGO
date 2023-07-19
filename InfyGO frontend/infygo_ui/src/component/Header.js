@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "./../images/infygonew.PNG";
-
+import { Link, Router } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -21,26 +21,35 @@ const Header = () => {
             <div className="">
               <ul className="nav navbar-nav nav-links">
                 <li>
-                  <a href="#header">Home</a>
+                  {/* <a href="#header">Home</a> */}
+                  <Link to="/home" className="home">
+                    Home
+                  </Link>
                 </li>
                 <li>
-                  <a href="#about-us">About Us</a>
+                  {/* <a href="/about-us">About Us</a> */}
+                  <Link to="/about-us" className="about-us">
+                    About Us
+                  </Link>
                 </li>
                 <li>
-                  <a href="#contact">Contact Us</a>
+                  {/* <a href="#contact">Contact Us</a> */}
+                  <Link to="/contact-us" className="contact">
+                    Contact Us
+                  </Link>
                 </li>
               </ul>
               <ul className="nav navbar-nav navbar-right margintop-5">
                 <li>
-                  <a className="btn btn-xs  nav-links-right" href="/register">
+                  <Link to="/register" className="btn btn-xs  nav-links-right">
                     {" "}
                     <span className="glyphicon glyphicon-user"></span>&nbsp;Sign Up
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a className="btn btn-xs .nav-links-right" href="/login">
+                  <Link to="/login" className="btn btn-xs .nav-links-right">
                     <span className="glyphicon glyphicon-log-in"></span>&nbsp;Login
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

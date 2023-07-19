@@ -1,89 +1,28 @@
 import React from "react";
-
-import image1 from "./../imgs/382266112.jpg";
-import image2 from "./../imgs/586266182.jpg";
-import image3 from "./../imgs/346909778.jpg";
+import { useEffect, useRef } from "react";
+import HomeCarousel from "./HomeCarousel";
 
 const Login = () => {
+  const scrollRef = useRef(null);
+
+  useEffect(() => {
+    // Scroll to the element when the component mounts
+    if (scrollRef.current) {
+      scrollRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, []);
+
   return (
     <body>
-      <header id="header">
-        <nav class="navbar st-navbar navbar-fixed-top">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#st-navbar-collapse">
-                <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
-              </button>
-              <a class="logo1" href="${pageContext.servletContext.contextPath}">
-                <img src="<c:url value='images/infygonew.PNG'/>" alt="" />
-              </a>
-            </div>
-          </div>
-        </nav>
-      </header>
+      <HomeCarousel />
 
-      <section id="slider" class="margintop-10">
-        <div id="home-carousel" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="item active" style={{ backgroundImage: `url(${image1})` }}>
-              <br />
-              <br />
-              <div class="container">
-                <div class="col-sm-6">
-                  <p class="head " style={{ color: "white" }}>
-                    Connecting flight
-                  </p>
-                  <p class="carousel-content  " style={{ color: "white" }}>
-                    Taking more than one flight to get to your final destination? At InfyGo, we make connecting flights much easier!
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="item" style={{ backgroundImage: `url(${image2})` }}>
-              <br />
-              <br />
-              <div class="container">
-                <div class="col-sm-6">
-                  <p class="head " style={{ color: "white" }}>
-                    InfyGo Meals onboard
-                  </p>
-                  <p class="carousel-content " style={{ color: "white" }}>
-                    Tickle your taste buds and enjoy sumptuous meals onboard!
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="item" style={{ backgroundImage: `url(${image3})` }}>
-              <br />
-              <br />
-              <div class="container">
-                <div class="col-sm-6">
-                  <p class="head " style={{ color: "white" }}>
-                    Hospitality
-                  </p>
-                  <p class="carousel-content " style={{ color: "white" }}>
-                    More convenience and comfort with our hospitality and services!
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <ol class="carousel-indicators">
-            <li data-target="#home-carousel" data-slide-to="0" class="active"></li>
-            <li data-target="#home-carousel" data-slide-to="1"></li>
-            <li data-target="#home-carousel" data-slide-to="2"></li>
-          </ol>
-        </div>
-      </section>
-
-      <div class="row marginbottom-150">
-        <div class="container col-sm-offset-1 col-sm-5 col-left ">
-          <h1 class="capital">
+      <div className="row marginbottom-150">
+        <div className="container col-sm-offset-1 col-sm-5 col-left ">
+          <h1 className="capital">
             <strong>About Us</strong>
           </h1>
-          <span class="st-border"></span>
-          <div class="about-us ">
+          <span className="st-border"></span>
+          <div className="about-us ">
             <br />
             <p>
               <b>
@@ -117,37 +56,37 @@ const Login = () => {
           </div>
         </div>
 
-        <div class="container  col-sm-5 col-right " style={{ width: "40%" }}>
+        <div ref={scrollRef} className="container  col-sm-5 col-right " style={{ width: "40%" }}>
           <br /> <br /> <br />
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h4 class="capital">Login</h4>
+          <div className="panel panel-default">
+            <div className="panel-heading">
+              <h4 className="capital">Login</h4>
             </div>
-            <div class="panel-body">
-              <h3 class="red" id="msg2"></h3>
+            <div className="panel-body">
+              <h3 className="red" id="msg2"></h3>
 
               <form id="login" action="${pageContext.servletContext.contextPath}/login" method="POST">
-                <div class="form-group">
-                  <label for="user" class="control-label col-sm-offset-1 col-sm-3 text-right">
+                <div className="form-group">
+                  <label htmlFor="user" className="control-label col-sm-offset-1 col-sm-3 text-right">
                     User Id*
                   </label>
-                  <div class="col-sm-7">
-                    <input type="text" class="form-control" id="user" name="username" required />
+                  <div className="col-sm-7">
+                    <input type="text" className="form-control" id="user" name="username" required />
                   </div>
                   <br />
                 </div>
-                <div class="form-group">
-                  <label for="pwd" class="control-label col-sm-offset-1 col-sm-3 text-right">
+                <div className="form-group">
+                  <label htmlFor="pwd" className="control-label col-sm-offset-1 col-sm-3 text-right">
                     Password*
                   </label>
-                  <div class="col-sm-7">
-                    <input type="password" class="form-control" id="pwd" name="password" required />
+                  <div className="col-sm-7">
+                    <input type="password" className="form-control" id="pwd" name="password" required />
                   </div>
                   <br />
                 </div>
                 <br />
-                <div class="col-sm-offset-4 col-sm-10 text-left">
-                  <button type="submit" id="loginbtn" class="btn btn-primary">
+                <div className="col-sm-offset-4 col-sm-10 text-left">
+                  <button type="submit" id="loginbtn" className="btn btn-primary">
                     Login
                   </button>
                 </div>
@@ -155,8 +94,8 @@ const Login = () => {
                 <br />
                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
-                <div class="col-md-12 text-center">
-                  <div class="text-center text-danger">Invalid credentials!</div>
+                <div className="col-md-12 text-center">
+                  <div className="text-center text-danger">Invalid credentials!</div>
                 </div>
               </form>
             </div>
