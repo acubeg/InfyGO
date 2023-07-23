@@ -17,7 +17,7 @@ public class RegistrationController {
     @Autowired
     private RegistrationService registrationService;
 
-    @PostMapping("/infyGO/registerUser")
+    @PostMapping("/infy-go/register")
     public String addCustomer(@RequestBody User user) throws UserIdAlreadyPresentException {
 
         return registrationService.registerUser(user);

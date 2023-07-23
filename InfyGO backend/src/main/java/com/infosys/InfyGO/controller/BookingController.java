@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -16,8 +17,7 @@ import com.infosys.InfyGO.dto.Booking;
 import com.infosys.InfyGO.exception.InfyGoBootException;
 import com.infosys.InfyGO.service.BookingService;
 
-@Controller
-@SessionAttributes({ "booking", "userId" })
+@RestController
 public class BookingController {
 
 	@Autowired

@@ -15,14 +15,11 @@ import org.springframework.stereotype.Repository;
 
 import com.infosys.InfyGO.entity.UserEntity;
 
+import java.util.Optional;
+
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
+//    Optional<UserEntity> findByUserName(String userName);
 
-//    @Modifying(clearAutomatically = true)
-//    @Transactional
-//    @Query(value = "update UserEntity set passwrd=:password where email=:email and phone=:phone")
-//    int updatePassword(@Param("email") String email, @Param("phone") String phone, @Param("password") String password);
-
-    <Optional>UserEntity findByUserId(String userId);
-
+    Optional<UserEntity> findByUserId(String userId);
 }

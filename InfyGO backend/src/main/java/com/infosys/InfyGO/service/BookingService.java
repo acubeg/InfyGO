@@ -2,6 +2,7 @@ package com.infosys.InfyGO.service;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Optional;
 
 import javax.servlet.http.HttpSession;
 import javax.transaction.Transactional;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.support.SessionStatus;
 
 import com.infosys.InfyGO.dto.Booking;
@@ -24,6 +26,8 @@ import com.infosys.InfyGO.entity.UserEntity;
 import com.infosys.InfyGO.exception.InfyGoBootException;
 import com.infosys.InfyGO.exception.UserNotFoundException;
 
+
+@Service
 public class BookingService {
 
 	@Autowired
@@ -39,7 +43,7 @@ public class BookingService {
 	@Transactional
 	public ResponseEntity<String> bookTickets(String userId, Booking booking) throws InfyGoBootException {
 
-		UserEntity user = userRepository.findByUserId(userId);
+		Optional<UserEntity> user = userRepository.findByUserId(userId);
 
 		if (!(user != null)) {
 			throw new UserNotFoundException(messageSource.getMessage("FlightService.USER_NOT_FOUND", null, null));
@@ -59,7 +63,6 @@ public class BookingService {
 		
 		PassengerEntity passengerDetails = new PassengerEntity();
 		
-		passengerDetails.setPassengerAge(booking.);
 
 		return response.status(HttpStatus.OK).body("Success");
 	}

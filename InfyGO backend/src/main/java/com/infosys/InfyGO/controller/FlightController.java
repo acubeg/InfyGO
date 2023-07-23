@@ -32,7 +32,7 @@ import com.infosys.InfyGO.service.FlightService;
 import com.infosys.InfyGO.utility.CalendarUtility;
 
 @Controller
-@RequestMapping("/flightDetails")
+@RequestMapping("/infy-go/flight-details")
 public class FlightController {
 	@Autowired
 	private FlightService flightService;
