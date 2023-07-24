@@ -120,19 +120,5 @@ const FeedbackDetails = () => {
   );
 };
 
-const App = () => {
-  return (
-    <div>
-      {/* Include your header component */}
-      {/* ... */}
-      <br />
-      <br />
-      <TicketDetails />
-      <FeedbackDetails />
-      {/* Include your footer component */}
-      {/* ... */}
-    </div>
-  );
-};
+export default TicketDetails;
 
-export default App;

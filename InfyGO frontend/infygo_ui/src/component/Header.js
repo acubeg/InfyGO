@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import logo from "./../images/infygonew.PNG";
 import { Link, Router } from "react-router-dom";
 
 const Header = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    // Check for user session and set isLoggedIn accordingly
+    if (sessionStorage?.getItem("userId") && sessionStorage?.getItem("accessToken")) {
+      setIsLoggedIn(true);
+    }
+  }, []);
   return (
     <header id="header">
       <nav className="navbar st-navbar navbar-fixed-top">
@@ -39,19 +47,30 @@ const Header = () => {
                   </Link>
                 </li>
               </ul>
-              <ul className="nav navbar-nav navbar-right margintop-5">
-                <li>
-                  <Link to="/register" className="btn btn-xs  nav-links-right">
-                    {" "}
-                    <span className="glyphicon glyphicon-user"></span>&nbsp;Sign Up
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/login" className="btn btn-xs .nav-links-right">
-                    <span className="glyphicon glyphicon-log-in"></span>&nbsp;Login
-                  </Link>
-                </li>
-              </ul>
+              {!isLoggedIn && (
+                <ul className="nav navbar-nav navbar-right margintop-5">
+                  <li>
+                    <Link to="/register" className="btn btn-xs  nav-links-right">
+                      {" "}
+                      <span className="glyphicon glyphicon-user"></span>&nbsp;Sign Up
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/login" className="btn btn-xs .nav-links-right">
+                      <span className="glyphicon glyphicon-log-in"></span>&nbsp;Login
+                    </Link>
+                  </li>
+                </ul>
+              )}
+              {isLoggedIn && (
+                <ul className="nav navbar-nav navbar-right margintop-5">
+                  <li>
+                    <Link to="/logout" className="btn btn-xs .nav-links-right">
+                      <span className="glyphicon glyphicon-log-in"></span>&nbsp;logout
+                    </Link>
+                  </li>
+                </ul>
+              )}
             </div>
           </div>
         </div>

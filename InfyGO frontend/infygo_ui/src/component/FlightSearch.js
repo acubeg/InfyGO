@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import * as Action from "./../redux/action/flightAction";
 
 function FlightSearch() {
   const [source, setSource] = useState("");
@@ -29,6 +30,11 @@ function FlightSearch() {
     // Perform flight search based on the selected criteria
     // You can use the source, destination, journeyDate, and sliderValue variables here
   };
+
+  useEffect(()=>{
+Action.getDestinationList();
+
+  },[])
 
   return (
     <div>
