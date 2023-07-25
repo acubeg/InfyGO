@@ -3,7 +3,6 @@
 
 # dependencies
 /InfyGO frontend/infygo_ui/node_modules
-# \InfyGO frontend\infygo_ui\node_modules
 /.pnp
 .pnp.js
 

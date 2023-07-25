@@ -1,13 +1,18 @@
 import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import * as Action from "./../redux/action/flightAction";
+// import FlightActions from "./../redux/action/flightAction";
+import Axios from "./Axios";
+import { useDispatch } from "react-redux";
+import { getDestinationCities,getSourceCities } from "../redux/reducer/flightSlice";
 
 function FlightSearch() {
   const [source, setSource] = useState("");
   const [destination, setDestination] = useState("");
   const [journeyDate, setJourneyDate] = useState(new Date());
   const [sliderValue, setSliderValue] = useState([2000, 15000]);
+
+  const dispatch = useDispatch();
 
   const handleSourceChange = (event) => {
     setSource(event.target.value);
@@ -31,10 +36,15 @@ function FlightSearch() {
     // You can use the source, destination, journeyDate, and sliderValue variables here
   };
 
-  useEffect(()=>{
-Action.getDestinationList();
+  useEffect(() => {
+    Axios.get("/infy-go/flight-details/destination").then((res) => {
+      dispatch(getDestinationCities(res?.data));
+    });
 
-  },[])
+    Axios.get("/infy-go/flight-details/source").then((res) => {
+      dispatch(getSourceCities(res?.data));
+    });
+  }, []);
 
   return (
     <div>

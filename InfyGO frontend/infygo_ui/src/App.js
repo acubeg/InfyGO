@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import { Route, Routes } from "react-router";
 import { useParams } from "react-router-dom";
-import store from "./redux/store"; // Import the Redux store
 
 import Home from "./component/Home";
 import Login from "./component/Login";
@@ -20,6 +19,7 @@ import { useState, useEffect } from "react";
 import Modal from "./component/Modal";
 import Logout from "./component/Logout";
 import { Provider } from 'react-redux';
+import {store} from './redux/store';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -34,7 +34,8 @@ function App() {
 
   return (
     <React.Fragment>
-      <Provider store={store}>
+
+<Provider store={store}>
         <Router>
           <Header />
           <div data-spy="scroll" data-target="#footer" style={{ marginTop: "80px" }}>
@@ -54,7 +55,7 @@ function App() {
         </Router>
         <Footer />
         <Spinner loading={loading} />
-      </Provider>
+        </Provider>
     </React.Fragment>
   );
 }

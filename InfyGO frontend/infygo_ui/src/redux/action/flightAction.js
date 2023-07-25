@@ -1,26 +1,29 @@
-import axios from "axios";
-import flightReducer from "../reducer/flightReducer";
+// import axios from "axios";
+// import { getDestinationCities, getSourceCities } from "./../reducer/flightSlice";
+// import { useDispatch } from "react-redux";
 
-export const getDestinationList = async () => {
-  await axios
-    .get("api/infy-go/flight-details/destination", {
-      mode: "cors",
-      headers: { userId: sessionStorage?.getItem("userId"), 
-                  Authorization: "Bearer "+ sessionStorage?.getItem("accessToken"),
-                  "Content-Type":"application/json"
-    },
-    })
-    .then((res) => {
-      flightReducer({ type: "UPDATE_DESTINATION_LIST", action: res?.data });
-    });
-};
+// const FlightActions =()=>{
+//   const dispatch = useDispatch();
 
-export const getSourceList = async () => {
-    await axios
-      .get("http://localhost:8080/infy-go/flight-details/source", {
-        headers: { userId: sessionStorage?.getItem("userId"), accessToken: sessionStorage?.getItem("accessToken") },
-      })
-      .then((res) => {
-        flightReducer({ type: "UPDATE_SOURCE_LIST", action: res?.data });
-      });
-  };
+//   const getDestinationList = async () => {
+//     await 
+//   };
+
+//   return null;
+
+
+// }
+// export default FlightActions;
+
+
+
+// // export const getSourceList = async () => {
+// //   await axios
+// //     .get("http://localhost:8080/infy-go/flight-details/source", {
+// //       headers: { userId: sessionStorage?.getItem("userId"),
+// //       accessToken: sessionStorage?.getItem("accessToken") },
+// //     })
+// //     .then((res) => {
+// //       getSourceCities(res.data);
+// //     });
+// // };  
